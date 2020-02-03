@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'relocation.apps.RelocationConfig'
+    'relocation.apps.RelocationConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -77,8 +77,8 @@ WSGI_APPLICATION = 'smoll_kit.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql', # on utilise l'adaptateur postgresql
-        'NAME': 'disquaire', # le nom de notre base de donnees creee precedemment
-        'USER': 'celinems', # attention : remplacez par votre nom d'utilisateur
+        'NAME': 'relocation', # le nom de notre base de donnees creee precedemment
+        'USER': 'coulibaly', # attention : remplacez par votre nom d'utilisateur
         'PASSWORD': '',
         'HOST': '',
         'PORT': '5432',
