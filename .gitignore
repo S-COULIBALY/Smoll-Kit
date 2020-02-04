@@ -1,0 +1,13 @@
+# DJANGO
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+
+# MAC OS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+
