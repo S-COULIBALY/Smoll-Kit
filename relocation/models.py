@@ -48,38 +48,3 @@ class Customer(models.Model):
 
     def __str__(self):
         return self.first_name + "" + self.last_name
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Les objets lourds
-class Heavy_Items(models.Model):
-    nom = models.CharField(max_length=60, default= "objets lourds")
-    frigo_standard = models.BooleanField()
-    frigo_americain = models.BooleanField()
-    gros_meuble = models.BooleanField()
-    piano_droit = models.BooleanField()
-    piano_a_queue = models.BooleanField()
-    def __str__(self):
-        return self.nom
