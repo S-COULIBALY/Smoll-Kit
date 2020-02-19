@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>My test page</title>
+</head>
+    <body>
+        <p>Demenagement</p>
+        <form action="{% url 'create' %}" method="post">
+            {% csrf_token %}
+            <input type="date" id="relocation_date" name="relocation_date" required>
+
+            <input type="time" id="relocation_heure" name="relocation_heure" min="09:00" max="18:00" required >
+
+            <input type="text" id="comment" name="comment" required>
+
+            <input type="number" id="volume" name="volume" step="0.01" required >
+
+            <input type="submit" value="Vote">
+        </form>
+    </body>
+</html>
