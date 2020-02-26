@@ -1,5 +1,5 @@
 from django.contrib import admin
 
-from .models import Relocation
+from .models import Demenagement
 # Register your models here.
-admin.site.register(Relocation)
+admin.site.register(Demenagement)

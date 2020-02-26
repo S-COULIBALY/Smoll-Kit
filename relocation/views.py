@@ -4,14 +4,14 @@ from django.template import loader
 # Create your views here.
 
 from django.http import HttpResponse
-from .models import Relocation
+from .models import Demenagement
 from datetime import datetime
 
 def index(request):
     relocation_date = ''
     template = loader.get_template('relocation/new.html')
     context = {}
-    relocation = Relocation()
+    relocation = Demenagement()
     return render(request, 'relocation/new.html', context)
 
 
@@ -23,7 +23,7 @@ def create(request):
     comment =  request.POST['comment']
     volume =  request.POST['volume']
 
-    relocation = Relocation()
+    relocation = Demenagement()
     relocation.relocation_date = datetime.combine(relocation_date, relocation_heure)
     relocation.comment = comment
     relocation.volume = volume
