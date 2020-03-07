@@ -15,28 +15,30 @@
     <div style="margin: 10%; padding: 5%; border-radius: 2%; background-color: #ecf0f1;">
         <div class="text-center" style= "margin-bottom: 25px;">
             <h4>Estimer votre devis en temps réel</h4>
+
+    <!-- the form -->
         </div>
-        <form>
+        <form action="/" method="POST">
             <div class="container">
                 <div class="form-row" style= "margin-bottom: 10px;">
                     <div class="col-xs-12 col-sm-6 col-md-6">
-                      <input type="text" class="form-control" placeholder="Volume">
+                      <input type="number" class="form-control" placeholder="Volume" required>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6">
-                        <input type="text" class="form-control" placeholder="Date du déménagement">
+                        <input type="text" class="form-control" placeholder="Date du déménagement" required>
                     </div>
                 </div>
 
                 <div class="form-row" style= "margin-bottom: 10px;">
                     <div class="col-xs-12 col-sm-6 col-md-6">
-                      <input type="text" class="form-control" placeholder="Adresse de chargement">
-                      <input type="text" class="form-control" placeholder="Code Postal">
-                      <input type="text" class="form-control" placeholder="Ville">
+                      <input type="text" class="form-control" placeholder="Adresse de chargement" required>
+                      <input type="text" class="form-control" placeholder="Code Postal" required>
+                      <input type="text" class="form-control" placeholder="Ville" required>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6">
-                        <input type="text" class="form-control" placeholder="Adresse de livraison">
-                        <input type="text" class="form-control" placeholder="Code Postal">
-                        <input type="text" class="form-control" placeholder="Ville">
+                        <input type="text" class="form-control" placeholder="Adresse de livraison" required>
+                        <input type="text" class="form-control" placeholder="Code Postal" required>
+                        <input type="text" class="form-control" placeholder="Ville" required>
                     </div>
                 </div>
 
@@ -89,14 +91,18 @@
                     </div>
 
                 </div>
-
-
             </div>
+
+            <div class="text-center" style= "margin-top: 25px;">
+              <textarea name="message" id="id_message" style="width: 600px; height: 150px;" > </textarea>
+          </div>
+
             <div class="text-center" style= "margin-top: 25px;">
                 <button type="submit" class="btn btn-success" style="width: 300px;">Submit</button>
             </div>
         </form>
     </div>
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
