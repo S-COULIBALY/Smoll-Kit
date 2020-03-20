@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="en">
+<html lang="fr">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -15,91 +15,58 @@
     <div style="margin: 10%; padding: 5%; border-radius: 2%; background-color: #ecf0f1;">
         <div class="text-center" style= "margin-bottom: 25px;">
             <h4>Estimer votre devis en temps réel</h4>
-
-    <!-- the form -->
         </div>
-        <form action="/" method="POST">
+        <!-- the form -->
+        <form action="{% url 'relocation:detail'%}" method="POST">
+          {% csrf_token %}
             <div class="container">
                 <div class="form-row" style= "margin-bottom: 10px;">
                     <div class="col-xs-12 col-sm-6 col-md-6">
-                      <input type="number" class="form-control" placeholder="Volume" required>
+                      {{dem_form.volume}}
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6">
-                        <input type="text" class="form-control" placeholder="Date du déménagement" required>
+                      {{dem_form.date}}
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                      {{dem_form.formule}}
                     </div>
                 </div>
 
                 <div class="form-row" style= "margin-bottom: 10px;">
                     <div class="col-xs-12 col-sm-6 col-md-6">
-                      <input type="text" class="form-control" placeholder="Adresse de chargement" required>
-                      <input type="text" class="form-control" placeholder="Code Postal" required>
-                      <input type="text" class="form-control" placeholder="Ville" required>
+                      {{address_form.rue}}
+                      {{address_form.code_postale}}
+                      {{address_form.ville}}
+                      {{address_form.pays}}
+                      {{address_form.etage}}
+                      {{address_form.ascenceur}}
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6">
-                        <input type="text" class="form-control" placeholder="Adresse de livraison" required>
-                        <input type="text" class="form-control" placeholder="Code Postal" required>
-                        <input type="text" class="form-control" placeholder="Ville" required>
+                      {{address_form.rue}}
+                      {{address_form.code_postale}}
+                      {{address_form.ville}}
+                      {{address_form.pays}}
+                      {{address_form.etage}}
+                      {{address_form.ascenceur}}
                     </div>
                 </div>
 
                 <div class="form-row">
-                    <div class="col-xs-12 col-sm-6 col-md-6">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                              Fournitures d'emballage
-                            </label>
-                        </div>
-
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-                            <label class="form-check-label" for="defaultCheck2">
-                              Emballage/Déballage d'objets fragiles
-                            </label>
-                          </div>
-
-                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                                Emballage/Déballage d'objets non fragiles
-                            </label>
-                          </div>
-                    </div>
                     
-
-                    <div class="col-xs-12 col-sm-6 col-md-6">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                              Démontage/remontage
-                            </label>
-                        </div>
-
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-                            <label class="form-check-label" for="defaultCheck2">
-                              Assurance déménagement
-                            </label>
-                          </div>
-
-                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                                Objets lourds
-                            </label>
-                          </div>
-                    </div>
-
+                  <div class="form-check">
+                    {{option_supplementaire_form}}
+                  </div>
                 </div>
             </div>
-
             <div class="text-center" style= "margin-top: 25px;">
-              <textarea name="message" id="id_message" style="width: 600px; height: 150px;" > </textarea>
-          </div>
-
-            <div class="text-center" style= "margin-top: 25px;">
-                <button type="submit" class="btn btn-success" style="width: 300px;">Submit</button>
+              {{dem_form.commentaire}}
             </div>
+          <!-- <input type="hidden" class="hidden" value="{{relocation.id }}" name="relocation.id"> -->
+          
+            <div class="text-center" style= "margin-top: 25px;">
+                <button type="submit" value="get_item" class="btn btn-success" style="width: 300px;">Submit</button>
+            </div>
+
         </form>
     </div>
 
@@ -111,4 +78,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   </body>
 </html>
+
+
+
+
 

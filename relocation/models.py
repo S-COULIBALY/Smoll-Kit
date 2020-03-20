@@ -10,7 +10,7 @@ class Demenagement(models.Model):
         ('F4', 'Formule Confort'),
         ('F5', 'Formule Prestige'),
     )
-    date = models.DateField(auto_now_add=True, verbose_name="Date du déménagement")
+    date = models.DateField(verbose_name="Date du déménagement")
     volume = models.IntegerField(blank=False, null=False)
     formule = models.CharField(max_length=2, choices=FORMULE, default="F3", verbose_name="Formule choisie")
     commentaire = models.TextField(max_length=200)
@@ -31,9 +31,9 @@ class OptionSupplementaire(models.Model):
         ("OPT4", "Montage/Démontage"),
         ("OPT5", "Assurance"),
         ("OPT6", "Lourds"),
-        ("OPT2", "Emballage/Déballage de fragiles"),
+        ("OPT7", "Emballage/Déballage de fragiles"),
     )
-    option = models.CharField(max_length=4, choices=OPTIONS, default="OPT3", verbose_name="options supplémentaires")
+    option = models.CharField(max_length=4, choices=OPTIONS, default="OPT3", verbose_name="options supplémentaires...")
     demenagements = models.ManyToManyField(Demenagement, db_column='demenagement_id', related_name='option', blank=True)
 
     def __str__(self):
@@ -57,12 +57,19 @@ class TypeAdresse(models.Model):
 
 
 class Address(models.Model):
+
+    ASCENSEUR= (
+        ('None', "Pas d'ascenseur"),
+        ('SMALL', 'Petit ascenseur'),
+        ('MEDIUM', 'Ascenseur moyen'),
+        ('BIG', 'Grand ascenseur'),
+    )
     rue = models.CharField("Rue", max_length=100, blank=False) # Google autocomplate
     code_postale = models.CharField("Code postale", max_length=10) #auto
     ville = models.CharField("Ville", max_length=20) #auto
     pays = models.CharField("pays", max_length=20)
     etage = models.IntegerField("Numéro d'étage", blank=False)  # menu déroulant
-    ascenceur = models.BooleanField("Ascenceur", default=True) # menu déroulant
+    ascenceur = models.CharField("Ascenseur", max_length=6, choices=ASCENSEUR, default='None') # menu déroulant
     demenagement = models.ForeignKey(Demenagement, db_column='demenagement_id', on_delete=models.CASCADE)
     type_adresse = models.ForeignKey(TypeAdresse, db_column='type_adresse_id', on_delete=models.CASCADE)
 
